@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>
+
+
+</title>
+
+<style>
+
+form input:required{
+border:2px solid yellow;
+background: #fff url(img/required.png) no-repeat 98% center;
+}
+form input:focus:valid{
+border:2px solid green;
+background: #fff url(img/valid.png) no-repeat 98% center;
+}
+
+form input[type="email"]:focus:valid{
+border:4px solid blue;
+
+}
+
+
+form input:focus:invalid{
+border:2px solid red;
+background: #fff url(img/invalid.png) no-repeat 98% center;
+}
+
+#nombre:required{
+border:2px solid pink;
+}
+
+
+</style>
+
+<!--   <script src="js/codigo.js"></script>-->
+<script>
+
+//document.getElementById("fecha").valueAsNumber = new Date().getTime();
+console.warn("Esto es una advertencia");
+function fff() {
+	// Para crear elementos llamamos a createElement con el nombre del elemento
+var nuevoH1 = document.createElement('h1');
+var nuevoParrafo = document.createElement('p');
+
+// Crear nodos de texto para un elemento
+var textoH1 = document.createTextNode('Hola mundo!');
+var textoParrafo = document.createTextNode('lorem ipsum...');
+
+// Añadir el texto a los elementos
+nuevoH1.appendChild(textoH1);
+nuevoParrafo.appendChild(textoParrafo);
+
+// también podemos asignar directamente el valor a la propiedad innerHTML
+//nuevoH1.innerHTML = textoH1
+//nuevoParrafo.innerHTML = textoParrafo
+
+//alert(nuevoH1.innerHTML);
+
+var cabecera = document.getElementById('cabecera');
+
+// Añadir elementos hijos a un elemento
+cabecera.appendChild(nuevoH1);
+cabecera.appendChild(nuevoParrafo);
+
+// También podemos añadir elementos ANTES del elemento seleccionado
+
+// Tomamos el padre
+//var padre = cabecera.parentNode;
+
+// Insertamos el h1 antes de la cabecera
+//padre.insertBefore(nuevoH1, cabecera);
+
+//var box2 = document.getElementById('box2');
+//box2.insertAdjacentHTML('beforeend', '<div><p>un parrafo nuevo.</p></div>');
+}
+
+</script>
+
+<script type="text/javascript">
+function Prueba() {
+	//var a=document.getElementById("apellido").value;
+//	var a=document.getElementById("box1");
+	//var hijos =a.parentNode;
+	var nuevoH1= document.createElement('h1');
+	var nuevoParrafo= document.createElement('p'); //crear el tipo de objeto <h1></<h1> y <p></p>
+	var textoH1 =document.createTextNode('Hola mundo');
+	var textoparrafo= document.createTextNode('Este es un parrafo creado por javascript'); // crear los contenidos de nuestras etiquetas
+	console.log("prueba1");
+	nuevoH1.appendChild(textoH1);
+	console.log("prueba2");
+	nuevoParrafo.appendChild(textoparrafo); //juntamos todo.
+	var cabecera= document.getElementById("cabecera");
+		console.log("prueba3");
+	cabecera.appendChild(nuevoH1);
+	console.log("prueba4");
+	cabecera.appendChild(nuevoParrafo);
+	var box2 = document.getElementById('box2');
+box2.insertAdjacentHTML('beforeend', '<div><p>un parrafo nuevo.</p></div>');
+
+	
+	
+	//console.log(hijos);
+}
+
+function Validaciones() {
+console.error("Esto es una advertencia");
+	var nombre= document.getElementById("nombre").value;
+	console.log(document.getElementById("epepep").childNodes);
+	hijos=document.getElementById("epepep").childNodes;
+	document.getElementById("fecha").valueAsNumber = new Date().getTime();
+	valor1=0;
+	valor2=0;
+	for(i=0;i<hijos.length;i++){
+	alert("nodo"+hijos[i].nodeName)
+	if(hijos[i].nodeName=="LABEL"){
+	valor1=hijos[i].value;
+		alert("label"+valor1)
+	}
+	if(hijos[2].nodeName=="INPUT"){
+	valor2=hijos[i].value;
+		alert("textp"+valor2)
+	}
+	
+	}
+	tot=valor1*valor2;
+	alert(tot);
+	if(nombre==""){
+		alert("El nombre esta vacio")
+	
+	}
+	fecha=new Date(Date.now());
+	document.getElementById("nombre").value="pepepe";
+	var selectcomida= document.getElementById("comida").selectedIndex;
+	if(selectcomida==0 || selectcomida==NULL){
+	
+	alert("No has seleccionado comida")
+	}
+	alert(" a comida"+document.getElementById("comida")[1].value);
+	var termino= document.getElementById("Terminos").checked;
+	alert("chequeo"+termino);
+	if(termino==false){
+
+	alert("No ha aceptado los terminos");
+}
+	var opcionseleccionada=false;
+	var opciones=document.getElementsByName("Sexo");
+	console.log(opciones);
+	for(i=0;i<opciones.length;i++){
+		if(opciones[i].checked==true){
+			opcionseleccionada=true;
+				
+			break;
+		}
+	
+	}
+	var fecha=new Date(Date.now());
+	alert(fecha);
+	if(opcionseleccionada==false){
+		alert("no se ha activado ningun radio buton");
+	}
+	alert("caracter"+nombre[0]);
+		document.getElementById("fecha").valueAsNumber = new Date().getTime();
+		alert(document.getElementById("comida")[1].value);
+}
+
+
+
+
+</script>
+</head>
+<body>
+
+<form action="#" method="post" >
+<div id='box1'>
+  <p>aquí algo de texto</p>
+   <p>aquí tengo otro parrafo</p>
+</div>
+<div id='box2'>
+  <p>otro parrafo bla bla bla</p>
+</div>
+<div id="epepep">
+<label name="precio" value="23"></label>
+<input type="text" name="idraaa" value="5" >
+</div>
+<div id="cabecera">
+</div>
+<fieldset>
+<legend>Datos personales</legend>
+<input type="text" name="idregistrado" value="5" hidden="true">
+<br>
+<br>
+<table>
+<tr>
+<td style="width: 25%">
+<label for="nombre">Nombre </label>
+</td>
+<td>
+<input class="clase" type="text" name="nombre" id="nombre" size="50" placeholder="Escribe tu nombre" required oninvalid="setCustomValidity('El Nombre no tiene formato correcto')" >
+</td>
+</tr>
+<tr>
+<td style="width: 25%">
+<label for="apellidos">Apellidos</label>
+</td>
+<td>
+<input type="text" name="apellidos" id="apellido" size="40" value="Garcia" ><br>
+</td>
+</tr>
+</table>
+<label for="cpostal">Codigo postal</label>
+<input type="text" name="cpostal" maxlength="5" minlength="5">
+
+<label for="email">Email</label>
+<input type="email" name="email" >
+<label for="numero">Numero</label>
+<input type="number" name="numero"><br>
+
+<label for="DNI">DNI</label>
+<input type="text" name="DNI" pattern="[0-9]{8}[A-Za-z]{1}" required>
+
+<label for="Sexo">Sexo</label>
+
+ <input type="radio" id="Hombre" name="Sexo" value="Hombre">
+  <label for="Hombre">Hombre</label>
+   <input type="radio" id="Mujer" name="Sexo" value="Mujer">
+  <label for="Mujer">Mujer</label>
+  <br>
+  <input type="checkbox" name="Terminos" id="Terminos" checked="true">
+  <label for="Terminos">Terminos de uso</label>
+  <br>
+  <label for="password">Contraseña</label>
+  <input type="password" name="password"><br>
+  <label for="fecha">Fecha de nacimiento</label>
+  <input type="date" name="fecha" id="fecha">
+  <br>
+  <label for="hora">Hora</label>
+  <input type="time" name="hora">
+  <label for="fichero">Archivos adjuntos</label>
+  <input type="file" name="fichero" accept=".pdf,.docx">
+  <br>
+  <input type="image" src="icon.jpg" width="25%" height="25%" onclick="Validaciones()" >
+  <br>
+  <input type="button" value="Prueba" tabindex="1">
+  <br>
+  <label for="comentarios">Comentarios</label><br>
+  <select id="comida" name="fcomida" multiple>
+  <option value="" selected>Selecciona la comida</option>
+  <option value="Carne">Carne</option>
+  <option value="Pescado" >Pescado</option>
+  <option value ="verduras">Verduras</option>
+  </select><br>
+  <label for="fcolor">Color</label>
+  <input type="color" name="fcolor" value="#000">
+  <br>
+  <label for="furl">Direccion web</label>
+  <input type="url" name="furl"><br>
+  
+<label for="listado"> Lista de navegadores</label> 
+<input list="navegadores" name="listado"/>
+  <datalist id="navegadores" >
+  		<option value="chrome">Chrome</option>
+  		<option value="Explorer">Explorer</option>
+  		<option value="Firefox">Firefox</option>
+  		<option value="Safari">Safari</option>
+  		<option value="Safari">Opera</option>
+  	</datalist>
+  <textarea name="comentarios" rows="10" cols="40">
+  Esto es una prueba
+  </textarea>
+  <input type="submit" value="Enviar formulario" tabindex="2">
+  <input type="reset" value="Resetear formulario" tabindex="3">
+  
+  </fieldset>
+</form>
+</body>
+</html>
